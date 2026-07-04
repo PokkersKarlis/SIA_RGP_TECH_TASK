@@ -1,0 +1,52 @@
+
+# Dependencies
+/vendor
+/node_modules
+
+# Laravel generated
+/bootstrap/ssr
+/public/build
+/public/fonts-manifest.dev.json
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+
+# Wayfinder / Chisel generated
+/resources/js/actions
+/resources/js/routes
+/resources/js/wayfinder
+
+# Environment
+.env
+.env.backup
+.env.production
+
+# Testing
+/.phpunit.cache
+.phpunit.result.cache
+
+# IDE
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+.phpactor.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Legacy
+Homestead.json
+Homestead.yaml
+/auth.json
+
+# Docker
+/temp
