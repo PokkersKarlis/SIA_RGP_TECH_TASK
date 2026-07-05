@@ -3,7 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         {{-- Inline script to detect system dark mode preference and apply it immediately --}}
         <script>
             (function() {
@@ -28,6 +30,16 @@
             html.dark {
                 background-color: oklch(0.145 0 0);
             }
+           /* Pielāgots radiālais spīdums fona dziļumam */
+       
+    body {
+        background-color: #020617 !important; /* Spēcīgs slate-950 aizvietotājs */
+        background-image: radial-gradient(circle at 50% -20%, rgba(124, 58, 237, 0.18) 0%, rgba(9, 9, 11, 0) 60%) !important;
+    }
+    .card-gradient {
+        background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.4) 50%, rgba(15, 23, 42, 0) 100%);
+    }
+
         </style>
 
         <link rel="icon" href="/favicon.ico" sizes="any">
@@ -41,7 +53,7 @@
             <title>{{ config('app.name', 'Laravel') }}</title>
         </x-inertia::head>
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased cinematic-glow">
         <x-inertia::app />
     </body>
 </html>

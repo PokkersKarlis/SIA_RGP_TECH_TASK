@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\ApiTokenController;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
-Route::inertia('/', 'Welcome')->name('home');
+Route::get('/', [SiteController::class, 'index'])->name('index');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::inertia('dashboard', 'Dashboard')->name('dashboard');
-});
+Route::post('/api-token', [ApiTokenController::class, 'store'])->name('api-token.store');
+Route::delete('/api-token', [ApiTokenController::class, 'destroy'])->name('api-token.destroy');
 
-require __DIR__.'/settings.php';
