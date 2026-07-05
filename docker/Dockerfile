@@ -1,8 +1,8 @@
 FROM php:8.4-fpm
 
 RUN apt-get update && apt-get install -y \
-    git curl unzip libpq-dev libzip-dev libpng-dev \
-    && docker-php-ext-install pdo pdo_pgsql zip gd bcmath pcntl
+    git curl unzip libpq-dev libzip-dev libpng-dev libsqlite3-dev \
+    && docker-php-ext-install pdo pdo_pgsql pdo_sqlite zip gd bcmath pcntl
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 

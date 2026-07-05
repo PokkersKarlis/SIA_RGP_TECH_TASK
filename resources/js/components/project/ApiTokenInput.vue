@@ -16,8 +16,6 @@ const emit = defineEmits<{
     delete: [];
 }>();
 
-
-
 function handleSaveToken(tokenValue: string) {
     emit('save', tokenValue);
 }
@@ -29,18 +27,18 @@ function handleDeleteToken() {
 </script>
 <template>
     <div
-        class="flex items-center space-x-2 bg-slate-900/40 backdrop-blur-md border border-slate-400 p-1.5 rounded-xl transition-all duration-300 border-slate-400 hover:border-white/10">
+        class="flex items-center space-x-2 bg-slate-900/40 backdrop-blur-md border border-slate-500 p-1.5 rounded-xl transition-all duration-300 border-slate-400 hover:border-white/10">
         <div class="relative flex items-center">
             <KeyRound class="w-3 h-3 absolute left-2.5 text-slate-500" />
             <input v-model="token" :disabled="isTokenProvided" type="password" placeholder="IMDb API Token..."
-                class="w-36 sm:w-48 bg-slate-950/60 border border-slate-400 focus:border-purple-500/50 rounded-lg pl-8 pr-3 py-1 text-xs text-slate-100 placeholder-slate-300 focus:outline-none focus:ring-1 focus:ring-purple-500/30 transition-all duration-300" />
+                class="w-36 sm:w-48 bg-slate-950/60 border border-slate-500 focus:border-purple-500/50 rounded-lg pl-8 pr-3 py-1 text-xs text-slate-100 placeholder-slate-300 focus:outline-none focus:ring-1 focus:ring-purple-500/30 transition-all duration-300" />
         </div>
         <button
             class="px-2.5 py-1 rounded-lg text-xs font-medium tracking-wide transition-all duration-200 flex items-center space-x-1"
             :class="isTokenProvided || !token
                 ? 'bg-slate-800/30 text-slate-600 cursor-not-allowed'
                 : 'bg-purple-600/10 hover:bg-purple-600 text-purple-400 hover:text-white active:scale-95'"
-            @click="handleSaveToken(token)" :disabled="isTokenProvided || !token">
+            @click="handleSaveToken(token)" :disabled="isTokenProvided || !token" title="Saglabāt Tokenu">
             <Plus class="w-3 h-3" />
             <span class="hidden sm:inline">Saglabāt</span>
         </button>
@@ -52,4 +50,3 @@ function handleDeleteToken() {
         </button>
     </div>
 </template>
-"

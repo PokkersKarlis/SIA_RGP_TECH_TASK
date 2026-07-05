@@ -1,3 +1,7 @@
-export * from './auth';
-export * from './navigation';
-export * from './ui';
+export interface Movie {
+    Title: string;
+    Year: string;
+    imdbID: string;
+    Type: string;
+    Poster: string;
+}
