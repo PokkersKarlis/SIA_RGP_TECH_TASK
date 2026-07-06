@@ -1,0 +1,24 @@
+/* Light mode */
+body {
+    background-color: #f8fafc;
+    background-image: radial-gradient(circle at 50% -20%, rgba(124, 58, 237, 0.08) 0%, transparent 60%);
+}
+
+.card-gradient {
+    background: linear-gradient(to top, rgba(241, 245, 249, 0.95) 0%, rgba(241, 245, 249, 0.4) 50%, rgba(241, 245, 249, 0) 100%);
+}
+
+/* Dark mode */
+html.dark body {
+    background-color: #020617;
+    background-image: radial-gradient(circle at 50% -20%, rgba(124, 58, 237, 0.18) 0%, rgba(9, 9, 11, 0) 60%);
+}
+
+html.dark .card-gradient {
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.4) 50%, rgba(15, 23, 42, 0) 100%);
+}
+
+/* Full height layout */
+html, body, #app {
+    min-height: 100vh;
+}

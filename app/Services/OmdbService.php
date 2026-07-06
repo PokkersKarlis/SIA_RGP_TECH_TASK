@@ -14,7 +14,7 @@ class OmdbService
         return Cache::remember(
             'omdb:search:' . md5(strtolower($query)),
             now()->addHours(6),
-            fn() => $this->fetch(['t' => $query])
+            fn() => $this->fetch(['s' => $query, 'type' => 'movie'])
         );
     }
 

@@ -43,8 +43,8 @@ function handleBlur() {
 
 <template>
     <section class="max-w-3xl mx-auto text-center mb-16 space-y-6">
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white">
-            Atrodi Savu Nākamo <br class="hidden sm:inline" />
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+    Atrodi Savu Nākamo <br class="hidden sm:inline" />
             <span class="bg-gradient-to-r from-purple-400 via-violet-500 to-cyan-400 bg-clip-text text-transparent">Kino Šedevru</span>
         </h1>
         <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto font-light">

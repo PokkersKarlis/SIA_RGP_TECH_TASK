@@ -2,11 +2,9 @@ name: tests
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 permissions:
   contents: read
@@ -23,24 +21,22 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'
-          extensions: pdo, pdo_sqlite, mbstring, zip, bcmath
           tools: composer:v2
-          coverage: none
+          coverage: xdebug
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'npm'
 
       - name: Install Node Dependencies
         run: npm ci
 
-      - name: Install Composer Dependencies
+      - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Copy Environment File
-        run: cp .env.testing .env
+        run: cp .env.example .env
 
       - name: Generate Application Key
         run: php artisan key:generate
@@ -48,5 +44,8 @@ jobs:
       - name: Build Assets
         run: npm run build
 
-      - name: Run Tests
+      - name: Run Type Analysis
+        run: composer types:check
+
+      - name: Tests
         run: php artisan test

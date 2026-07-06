@@ -106,7 +106,7 @@ const isNotFound = computed(() =>
                     <p class="text-white font-medium text-sm">Nekas netika atrasts</p>
                     <p class="text-slate-500 text-xs max-w-xs mx-auto font-light">
                         Neizdevās atrast rezultātus vaicājumam "<span class="text-slate-300">{{ props.lastQuery
-                            }}</span>". Mēģini citu meklēšanas terminu.
+                        }}</span>". Mēģini citu meklēšanas terminu.
                     </p>
                 </div>
             </section>
@@ -147,16 +147,20 @@ const isNotFound = computed(() =>
     </main>
 
     <!-- FOOTER -->
-    <footer class="w-full border-t border-white/5 py-6 mt-auto bg-slate-950/80 backdrop-blur-md">
+    <footer
+        class="w-full border-t border-slate-200 dark:border-white/5 py-6 mt-auto bg-white/80 dark:bg-slate-950/80 backdrop-blur-md">
         <div
-            class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-600 flex flex-col sm:flex-row justify-between items-center gap-2">
+            class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 dark:text-slate-600 flex flex-col sm:flex-row justify-between items-center gap-2">
             <p>&copy; 2026 CineSearch. Visas tiesības aizsargātas.</p>
             <div class="flex space-x-4">
-                <span class="hover:text-slate-400 transition-colors cursor-pointer">Vue 3 + Laravel API</span>
+                <span class="hover:text-slate-700 dark:hover:text-slate-400 transition-colors cursor-pointer">Vue 3 +
+                    Laravel API</span>
                 <span>&middot;</span>
-                <span class="hover:text-slate-400 transition-colors cursor-pointer">IMDb Wrapper</span>
+                <span class="hover:text-slate-700 dark:hover:text-slate-400 transition-colors cursor-pointer">IMDb
+                    Wrapper</span>
                 <span>&middot;</span>
-                <span class="hover:text-slate-400 transition-colors cursor-pointer">Autors Kārlis PokkersA</span>
+                <span class="hover:text-slate-700 dark:hover:text-slate-400 transition-colors cursor-pointer">Autors
+                    Kārlis Pokkers</span>
             </div>
         </div>
     </footer>
