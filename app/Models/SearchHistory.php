@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 class SearchHistory extends Model
 {
@@ -33,7 +34,8 @@ class SearchHistory extends Model
             ->delete();
     }
 
-    public static function forSession(string $sessionId): \Illuminate\Support\Collection
+    /** @return Collection<int, string> */
+    public static function forSession(string $sessionId): Collection
     {
         return static::where('session_id', $sessionId)
             ->latest()

@@ -9,24 +9,30 @@ use Illuminate\Support\Facades\Http;
 
 class OmdbService
 {
+    /** @return array<string, mixed> */
     public function search(string $query): array
     {
         return Cache::remember(
             'omdb:search:' . md5(strtolower($query)),
             now()->addHours(6),
-            fn() => $this->fetch(['s' => $query, 'type' => 'movie'])
+            fn () => $this->fetch(['s' => $query, 'type' => 'movie'])
         );
     }
 
+    /** @return array<string, mixed> */
     public function findById(string $imdbId): array
     {
         return Cache::remember(
             "omdb:details:{$imdbId}",
             now()->addDay(),
-            fn() => $this->fetch(['i' => $imdbId, 'plot' => 'full'])
+            fn () => $this->fetch(['i' => $imdbId, 'plot' => 'full'])
         );
     }
 
+    /**
+     * @param  array<string, string>  $params
+     * @return array<string, mixed>
+     */
     private function fetch(array $params): array
     {
         $response = $this->client()->get('', array_merge($params, [

@@ -10,6 +10,8 @@ Filmu meklēšanas tīmekļa lietotne, kas izmanto [OMDB API](http://www.omdbapi
 - Paplašināta informācija par izvēlēto filmu modālajā logā (plakāts, apraksts, IMDb vērtējums, režisors, aktieri u.c.)
 - Personalizēts OMDB API tokens (glabājas sesijā, nevis globālajā konfigurācijā)
 - Rezultātu kešošana ātrākai atkārtotai meklēšanai
+- Tumšais/gaišais režīms
+- Meklēšanas vēstures tīrīšana (`search:prune` Artisan komanda)
 - Pest testi (unit un feature)
 
 ## Tehnoloģiju steks
@@ -33,6 +35,8 @@ Filmu meklēšanas tīmekļa lietotne, kas izmanto [OMDB API](http://www.omdbapi
 │   │   └── OmdbService.php             # OMDB API klients (cache, kļūdu apstrāde)
 │   ├── Models/
 │   │   └── SearchHistory.php           # Meklēšanas vēsture (pēdējie 5 vaicājumi)
+│   ├── Console/Commands/
+│   │   └── PruneSearchHistory.php  # Meklēšanas vēstures tīrīšana
 │   └── Exceptions/
 │       └── OmdbException.php
 ├── resources/js/
@@ -131,6 +135,13 @@ vai
 
 ```bash
 docker compose exec app php artisan test
+```
+
+## Artisan komandas
+
+```bash
+# Iztīra novecojušus meklēšanas vēstures ierakstus
+docker compose exec app php artisan search:prune
 ```
 
 Testi izmanto SQLite in-memory datubāzi un `Http::fake()`, lai netiktu veikti reāli pieprasījumi uz OMDB API.
